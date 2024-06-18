@@ -213,8 +213,8 @@ put_scores(monster, other)
 #ifndef WINDOWS
 	setegid(egid);
 #endif
-	if ((fp = fopen(scorefile, "r+")) == NULL &&
-	    (fp = fopen(scorefile, "w+")) == NULL) {
+	if ((fp = fopen(scorefile, "rb+")) == NULL &&
+	    (fp = fopen(scorefile, "wb+")) == NULL) {
 #ifndef WINDOWS
 		setegid(gid);
 #endif

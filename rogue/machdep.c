@@ -215,6 +215,8 @@ md_get_file_id(const char *fname)
 {
 #ifdef WINDOWS
 	return 0;
+#elif !defined(ANTI_CHEAT)
+	return 0;
 #else
 	struct stat sbuf;
 	if (stat(fname, &sbuf)) {

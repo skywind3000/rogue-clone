@@ -99,7 +99,7 @@ save_into_file(sfile)
 			}
 		}
 	}
-	if (((fp = fopen(sfile, "w")) == NULL) ||
+	if (((fp = fopen(sfile, "wb")) == NULL) ||
 	    ((file_id = md_get_file_id(sfile)) == -1)) {
 		message("problem accessing the save file", 0);
 		return;
@@ -164,7 +164,7 @@ restore(fname)
 
 	fp = NULL;
 	if (((new_file_id = md_get_file_id(fname)) == -1) ||
-	    ((fp = fopen(fname, "r")) == NULL)) {
+	    ((fp = fopen(fname, "rb")) == NULL)) {
 		clean_up("cannot open file");
 	}
 	if (md_link_count(fname) > 1) {
@@ -222,10 +222,12 @@ restore(fname)
 
 	md_gfmt(fname, &mod_time);	/* get file modification time */
 
+#ifdef CHEAT_CHECK
 	if (has_been_touched(&saved_time, &mod_time)) {
 		clear();
 		clean_up("sorry, file has been touched");
 	}
+#endif
 	if ((!wizard) && !md_df(fname)) {
 		clean_up("cannot delete file");
 	}
