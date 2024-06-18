@@ -38,4 +38,6 @@
 /objs/*
 /rogue/build/*
 /rogue/objs/*
+/rogue-clone.exe
+/rogue-clone
 
