@@ -578,8 +578,8 @@ char * md_savedir(void) {
 #ifdef WINDOWS
 		home = (char*)getenv("APPDATA");
 		if (home) {
-			base = calloc(strlen(home) + 14, sizeof(char));
-			snprintf(base, strlen(home) + 14, "%s/rogue-clone", home);
+			base = calloc(strlen(home) + 2, sizeof(char));
+			snprintf(base, strlen(home) + 2, "%s", home);
 		} else {
 			home = md_homedir();
 			if (!home)
