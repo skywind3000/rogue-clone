@@ -222,7 +222,7 @@ restore(fname)
 
 	md_gfmt(fname, &mod_time);	/* get file modification time */
 
-#ifdef CHEAT_CHECK
+#ifdef ANTI_CHEAT
 	if (has_been_touched(&saved_time, &mod_time)) {
 		clear();
 		clean_up("sorry, file has been touched");
