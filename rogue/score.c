@@ -604,5 +604,9 @@ sf_error()
 {
 	md_lock(0);
 	message("", 1);
+#if 1
 	clean_up("sorry, score file is out of order");
+#else
+	clean_up(md_scorefile());
+#endif
 }
