@@ -3,12 +3,14 @@ win32/out: rogue-clone.exe
 linux/out: rogue-clone
 int: objs/$(target)-$(profile)
 win32/define: PDC_WIDE=1, PDC_FORCE_UTF8=1
-flnk: -static
-flag@debug: -static, -g, -Og
-flag@release: -static, -Os
+win32/flag: -static
+win32/flnk: -static
+flag@debug: -g, -Og
+flag@release: -Os
 flnk@release: -s
 
-link: pdcurses_wincon
+win32/link: pdcurses_wincon
+linux/link: ncurses, tinfo
 
 src: rogue/hit.c
 src: rogue/init.c

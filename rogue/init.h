@@ -22,6 +22,9 @@
 	#ifndef __linux
 		#define __linux 1
 	#endif
+	#ifndef UNIX
+		#define UNIX 1
+	#endif
 #endif
 
 
@@ -47,7 +50,9 @@ typedef unsigned char boolean;
 // OPTIONS
 //---------------------------------------------------------------------
 #ifdef WINDOWS
-#define HAVE_PDCURSES 1
+	#define HAVE_PDCURSES 1
+#elif defined(__linux)
+	#define HAVE_NCURSES 1
 #endif
 
 

@@ -94,11 +94,11 @@ __RCSID("$NetBSD: machdep.c,v 1.13 2005/02/15 12:56:20 jsm Exp $");
  */
 
 #ifdef UNIX
-
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/file.h>
 #include <sys/stat.h>
+#include <time.h>
 #include <pwd.h>
 
 #ifdef UNIX_BSD4_2
@@ -494,7 +494,7 @@ void md_lock(boolean l)
 
 	if (l) {
 		setegid(egid);
-		if ((fd = open(_PATH_SCOREFILE, O_RDONLY)) < 1) {
+		if ((fd = open(md_scorefile(), O_RDONLY)) < 1) {
 			setegid(gid);
 			message("cannot lock score file", 0);
 			return;
