@@ -39,7 +39,7 @@
 // types
 //---------------------------------------------------------------------
 #ifndef boolean
-typedef char boolean;
+typedef unsigned char boolean;
 #endif
 
 

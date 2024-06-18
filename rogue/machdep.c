@@ -125,7 +125,12 @@ __RCSID("$NetBSD: machdep.c,v 1.13 2005/02/15 12:56:20 jsm Exp $");
 #include <io.h>
 #include <time.h>
 #include <signal.h>
+#ifndef WIN32_LEAN_AND_MEAN  
+#define WIN32_LEAN_AND_MEAN  
+#endif
 #include <synchapi.h>
+#include <wtypes.h>
+#include <winbase.h>
 
 #include "rogue.h"
 
@@ -346,7 +351,12 @@ boolean md_df(const char *fname)
 const char *md_gln(void)
 {
 #ifdef WINDOWS
-	return "Unknown";
+	static char username[1024];
+	DWORD usernameLength = MAX_PATH;
+	if (GetUserNameA(username, &usernameLength)) {
+		return username;
+	}
+	return NULL;
 #else
 	struct passwd *p;
 	if (!(p = getpwuid(getuid())))

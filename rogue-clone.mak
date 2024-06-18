@@ -2,10 +2,11 @@ mode: exe
 win32/out: rogue-clone.exe
 linux/out: rogue-clone
 int: objs/$(target)-$(profile)
-win32/inc: d:/dev/mingw32/include/pdcurses
 win32/define: PDC_WIDE=1, PDC_FORCE_UTF8=1
-flag: -static, -g, -Og
 flnk: -static
+flag@debug: -static, -g, -Og
+flag@release: -static, -Os
+flnk@release: -s
 
 link: pdcurses_wincon
 
@@ -31,4 +32,5 @@ src: rogue/throw.c
 src: rogue/trap.c
 src: rogue/use.c
 src: rogue/zap.c
+
 
