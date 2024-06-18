@@ -228,12 +228,12 @@ restore(fname)
 		clean_up("sorry, file has been touched");
 	}
 #endif
+	fclose(fp);
 	if ((!wizard) && !md_df(fname)) {
 		clean_up("cannot delete file");
 	}
 	msg_cleared = 0;
 	ring_stats(0);
-	fclose(fp);
 }
 
 void

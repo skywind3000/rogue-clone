@@ -125,6 +125,7 @@ __RCSID("$NetBSD: machdep.c,v 1.13 2005/02/15 12:56:20 jsm Exp $");
 #include <io.h>
 #include <time.h>
 #include <signal.h>
+#include <errno.h>
 #ifndef WIN32_LEAN_AND_MEAN  
 #define WIN32_LEAN_AND_MEAN  
 #endif
@@ -329,7 +330,7 @@ void md_gfmt(const char *fname, struct rogue_time *rt_buf)
 boolean md_df(const char *fname)
 {
 #ifdef WINDOWS
-	if (_unlink(fname)) {
+	if (DeleteFileA(fname) == 0) {
 		return(0);
 	}
 #else
