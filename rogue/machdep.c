@@ -618,7 +618,7 @@ char * md_scorefile(void) {
 	if (filename[0] == 0) {
 		char *dir = md_savedir();
 		char *file = calloc(strlen(dir) + 13, sizeof(char));
-		snprintf(file, strlen(dir) + 13, "%s/ranking", dir);
+		snprintf(file, strlen(dir) + 13, "%s/rogue.score", dir);
 
 		free(dir);
 		memcpy(filename, file, strlen(file));
