@@ -574,8 +574,9 @@ char * md_homedir(void) {
 char * md_savedir(void) {
 	char *base = getenv("XDG_DATA_HOME");
 	if (!base || base[0] != '/') {
+		char *home = md_homedir();
 #ifdef WINDOWS
-		char *home = (char*)getenv("APPDATA");
+		home = (char*)getenv("APPDATA");
 		if (home) {
 			base = calloc(strlen(home) + 14, sizeof(char));
 			snprintf(base, strlen(home) + 14, "%s/rogue-clone", home);
@@ -587,7 +588,6 @@ char * md_savedir(void) {
 			snprintf(base, strlen(home) + 14, "%s/_rogue-clone", home);
 		}
 #else
-		char *home = md_homedir();
 		if (!home || home[0] != '/')
 			clean_up("md_scorefile: invalid $HOME\n");
 		base = calloc(strlen(home) + 14, sizeof(char));
