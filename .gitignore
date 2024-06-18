@@ -6,6 +6,7 @@
 *.lo
 *.o
 *.obj
+*.p
 
 # Precompiled Headers
 *.gch
@@ -30,3 +31,11 @@
 *.exe
 *.out
 *.app
+
+/.tasks
+/.vscode/*
+/build/*
+/objs/*
+/rogue/build/*
+/rogue/objs/*
+
