@@ -273,10 +273,18 @@ do_args(argc, argv)
 				case 's':
 					score_only = 1;
 					break;
+				case 'u':
+					unique_savefile = 1;
+					if (md_readable(md_savefile())) {
+						rest_file = md_savefile();
+					}
+					break;
 				}
 			}
 		} else {
-			rest_file = argv[i];
+			if (unique_savefile == 0) {
+				rest_file = argv[i];
+			}
 		}
 	}
 }
@@ -312,6 +320,11 @@ do_opts()
 				no_skull = 1;
 			} else if (!strncmp(eptr, "passgo", 5)) {
 				passgo = 1;
+			} else if (!strncmp(eptr, "unique", 6)) {
+				unique_savefile = 1;
+				if (md_readable(md_savefile())) {
+					rest_file = md_savefile();
+				}
 			}
 			while ((*eptr) && (*eptr != ',')) {
 				eptr++;
