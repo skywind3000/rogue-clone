@@ -274,7 +274,6 @@ read_pack(pack, fp, is_rogue)
 		}
 		new_obj = alloc_object();
 		*new_obj = read_obj;
-		new_obj->damage = "1d1";
 		if (is_rogue) {
 			if (new_obj->in_use_flags & BEING_WORN) {
 				do_wear(new_obj);
