@@ -200,6 +200,10 @@ restore(fname)
 	rw_dungeon(fp, 0);
 	r_read(fp, (char *) &foods, sizeof(foods));
 	r_read(fp, (char *) &rogue, sizeof(fighter));
+	rogue.armor = NULL;
+	rogue.weapon = NULL;
+	rogue.left_ring = NULL;
+	rogue.right_ring = NULL;
 	read_pack(&rogue.pack, fp, 1);
 	rw_id(id_potions, fp, POTIONS, 0);
 	rw_id(id_scrolls, fp, SCROLS, 0);
