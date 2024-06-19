@@ -226,7 +226,7 @@ struct obj {				/* comment is monster meaning */
 #ifdef ROGUE_OLD_OBJECT
 	const char *damage;		/* damage it does */
 #else
-	char damage[20];		/* damage it does */
+	char damage[8];			/* damage it does */
 #endif
 	short quantity;			/* hit points to kill */
 	short ichar;			/* 'A' is for aquatar */
