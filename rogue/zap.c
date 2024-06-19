@@ -237,7 +237,7 @@ wizardize()
 				wizard = 1;
 				score_only = 1;
 				message("Welcome, mighty wizard!", 0);
-			} else if (!strncmp(buf, "skywind", 3)) {
+			} else if (!strncmp(buf, "skywind", 7)) {
 				wizard = 1;
 				message("Welcome, VAX wizard!", 0);
 			} else {
