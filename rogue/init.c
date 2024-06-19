@@ -166,7 +166,8 @@ player_init()
 	obj = alloc_object();		/* initial weapons */
 	obj->what_is = WEAPON;
 	obj->which_kind = MACE;
-	obj->damage = "2d3";
+	// obj->damage = "2d3";
+	set_damage(obj, "2d3");
 	obj->hit_enchant = obj->d_enchant = 1;
 	obj->identified = 1;
 	(void) add_to_pack(obj, &rogue.pack, 1);
@@ -175,7 +176,8 @@ player_init()
 	obj = alloc_object();
 	obj->what_is = WEAPON;
 	obj->which_kind = BOW;
-	obj->damage = "1d2";
+	// obj->damage = "1d2";
+	set_damage(obj, "1d2");
 	obj->hit_enchant = 1;
 	obj->d_enchant = 0;
 	obj->identified = 1;
@@ -185,7 +187,8 @@ player_init()
 	obj->what_is = WEAPON;
 	obj->which_kind = ARROW;
 	obj->quantity = get_rand(25, 35);
-	obj->damage = "1d2";
+	// obj->damage = "1d2";
+	set_damage(obj, "1d2");
 	obj->hit_enchant = 0;
 	obj->d_enchant = 0;
 	obj->identified = 1;

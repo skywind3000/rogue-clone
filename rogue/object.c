@@ -53,6 +53,8 @@ __RCSID("$NetBSD: object.c,v 1.9 2003/08/07 09:37:39 agc Exp $");
  *
  */
 
+#include <assert.h>
+
 #include "rogue.h"
 
 object level_objects;
@@ -536,25 +538,33 @@ gr_weapon(obj, assign_wk)
 	switch(obj->which_kind) {
 	case BOW:
 	case DART:
-		obj->damage = "1d1";
+		set_damage(obj, "1d1");
 		break;
 	case ARROW:
-		obj->damage = "1d2";
+		set_damage(obj, "1d2");
 		break;
 	case DAGGER:
-		obj->damage = "1d3";
+		// obj->damage = "1d3";
+		set_damage(obj, "1d3");
 		break;
 	case SHURIKEN:
-		obj->damage = "1d4";
+		// obj->damage = "1d4";
+		set_damage(obj, "1d4");
 		break;
 	case MACE:
-		obj->damage = "2d3";
+		// obj->damage = "2d3";
+		set_damage(obj, "2d3");
 		break;
 	case LONG_SWORD:
-		obj->damage = "3d4";
+		// obj->damage = "3d4";
+		set_damage(obj, "3d4");
 		break;
 	case TWO_HANDED_SWORD:
-		obj->damage = "4d5";
+		// obj->damage = "4d5";
+		set_damage(obj, "4d5");
+		break;
+	default:
+		set_damage(obj, "1d1");
 		break;
 	}
 }
@@ -628,6 +638,18 @@ get_armor_class(obj)
 	return(0);
 }
 
+void set_damage(object *obj, const char *damage)
+{
+	if (obj) {
+	#ifdef ROGUE_OLD_OBJECT
+		obj->damage = damage;
+	#else
+		memset(obj->damage, 0, sizeof(obj->damage));
+		strncpy(obj->damage, damage, sizeof(obj->damage) - 1);
+	#endif
+	}
+}
+
 object *
 alloc_object()
 {
@@ -640,12 +662,16 @@ alloc_object()
 			message("cannot allocate object, saving game", 0);
 			save_into_file(error_file);
 	}
+	assert(obj != NULL);
+	memset(obj, 0, sizeof(object));
 	obj->quantity = 1;
 	obj->ichar = 'L';
 	obj->picked_up = obj->is_cursed = 0;
 	obj->in_use_flags = NOT_USED;
 	obj->identified = UNIDENTIFIED;
-	obj->damage = "1d1";
+
+	set_damage(obj, "1d1");
+
 	return(obj);
 }
 

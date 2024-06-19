@@ -223,7 +223,11 @@ struct id {
 
 struct obj {				/* comment is monster meaning */
 	unsigned long m_flags;	/* monster flags */
+#ifdef ROGUE_OLD_OBJECT
 	const char *damage;		/* damage it does */
+#else
+	char damage[20];		/* damage it does */
+#endif
 	short quantity;			/* hit points to kill */
 	short ichar;			/* 'A' is for aquatar */
 	short kill_exp;			/* exp for killing it */
@@ -459,6 +463,7 @@ object	*get_thrown_at_monster(object *, short, short *, short *);
 object	*get_zapped_monster(short, short *, short *);
 object	*gr_monster(object *, int);
 object	*gr_object(void);
+void	set_damage(object *obj, const char *damage);
 char	*md_getenv(const char *);
 const char *
 	md_gln(void);
