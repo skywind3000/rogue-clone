@@ -239,6 +239,8 @@ int md_link_count(const char *fname)
 {
 #ifdef WINDOWS
 	return 0;
+#elif !defined(OPT_ANTI_CHEAT)
+	return 0;
 #else
 	struct stat sbuf;
 	stat(fname, &sbuf);

@@ -192,9 +192,11 @@ restore(fname)
 	read_pack(&level_monsters, fp, 0);
 	read_pack(&level_objects, fp, 0);
 	r_read(fp, (char *) &saved_file_id, sizeof(saved_file_id));
+#ifdef OPTS_ANTI_CHEAT
 	if (new_file_id != saved_file_id) {
 		clean_up("sorry, saved game is not in the same file");
 	}
+#endif
 	rw_dungeon(fp, 0);
 	r_read(fp, (char *) &foods, sizeof(foods));
 	r_read(fp, (char *) &rogue, sizeof(fighter));
