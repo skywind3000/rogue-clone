@@ -69,6 +69,7 @@ boolean save_is_interactive = 1;
 boolean ask_quit = 1;
 boolean no_skull = 0;
 boolean passgo = 0;
+boolean unique_savefile = 0;
 const char *error_file = "rogue.esave";
 const char *byebye_string = "Okay, bye bye!";
 #if defined(WIN32) || defined(_WIN32) || defined(WIN64) || defined(_WIN64)

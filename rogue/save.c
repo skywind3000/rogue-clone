@@ -63,15 +63,21 @@ char *save_file = (char *) 0;
 void
 save_game()
 {
-	char fname[64];
-
-	if (!get_input_line("file name?", save_file, fname, "game not saved",
-			0, 1)) {
-		return;
+	if (unique_savefile == 0) {
+		char fname[64];
+		if (!get_input_line("file name?", save_file, fname, "game not saved",
+				0, 1)) {
+			return;
+		}
+		check_message();
+		message(fname, 0);
+		save_into_file(fname);
+	}	else {
+		char *savename = md_savefile();
+		check_message();
+		message(savename, 0);
+		save_into_file(savename);
 	}
-	check_message();
-	message(fname, 0);
-	save_into_file(fname);
 }
 
 void
@@ -222,7 +228,7 @@ restore(fname)
 
 	md_gfmt(fname, &mod_time);	/* get file modification time */
 
-#ifdef ANTI_CHEAT
+#ifdef OPT_ANTI_CHEAT
 	if (has_been_touched(&saved_time, &mod_time)) {
 		clear();
 		clean_up("sorry, file has been touched");
@@ -431,3 +437,4 @@ has_been_touched(saved_time, mod_time)
 	}
 	return(0);
 }
+

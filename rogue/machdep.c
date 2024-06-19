@@ -216,7 +216,7 @@ md_get_file_id(const char *fname)
 {
 #ifdef WINDOWS
 	return 0;
-#elif !defined(ANTI_CHEAT)
+#elif !defined(OPT_ANTI_CHEAT)
 	return 0;
 #else
 	struct stat sbuf;
@@ -614,7 +614,7 @@ char * md_savedir(void) {
 
 
 char * md_scorefile(void) {
-	static char filename[2048] = {0};
+	static char filename[512] = {0};
 	if (filename[0] == 0) {
 		char *dir = md_savedir();
 		char *file = calloc(strlen(dir) + 13, sizeof(char));
@@ -622,9 +622,30 @@ char * md_scorefile(void) {
 
 		free(dir);
 		memcpy(filename, file, strlen(file));
+		filename[strlen(file)] = 0;
 		free(file);
 	}
 	return filename;
+}
+
+// returns save file name
+char * md_savefile(void) 
+{
+	if (unique_savefile != 0) {
+		static char filename[512] = {0};
+		if (filename[0] == 0) {
+			char *dir = md_savedir();
+			int size = strlen(dir) + 100;
+			char *file = calloc(size + 2, sizeof(char));
+			snprintf(file, size, "%s/rogue.save", dir);
+			free(dir);
+			memcpy(filename, file, strlen(file));
+			filename[strlen(file)] = 0;
+			free(file);
+		}
+		return filename;
+	}
+	return save_file;
 }
 
 /*
@@ -653,4 +674,16 @@ size_t md_strlcpy(char *dst, const char *src, size_t siz)
 	}
 	return(s - src - 1);	/* count does not include NUL */
 }
+
+
+boolean md_readable(const char *file)
+{
+	FILE *fp = fopen(file, "rb");
+	if (fp != NULL) {
+		fclose(fp);
+		return 1;
+	}
+	return 0;
+}
+
 

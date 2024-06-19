@@ -609,7 +609,9 @@ void	md_mkdir(const char *dir, int mode);
 char*	md_homedir(void);
 char*	md_savedir(void);
 char*	md_scorefile(void);
+char*	md_savefile(void);
 size_t	md_strlcpy(char *dst, const char *src, size_t siz);
+boolean md_readable(const char *file);
 void	message(const char *, boolean);
 void	mix_colors(void);
 void	mix_random_rooms(void);
@@ -772,6 +774,7 @@ extern	boolean	see_invisible;
 extern	boolean	sustain_strength;
 extern	boolean	trap_door;
 extern	boolean	wizard;
+extern	boolean unique_savefile;
 extern	char	hit_message[];
 #define HUNGER_STR_LEN 8
 extern	char	hunger_str[HUNGER_STR_LEN];

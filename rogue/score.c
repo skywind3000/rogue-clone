@@ -228,7 +228,8 @@ put_scores(monster, other)
 	(void) xxx(1);
 
 	for (i = 0; i < 10; i++) {
-		if (((n = fread(scores[i], sizeof(char), 80, fp)) < 80) && (n != 0)) {
+		n = fread(scores[i], sizeof(char), 80, fp);
+		if ((n < 80) && (n != 0)) {
 			sf_error();
 		} else if (n != 0) {
 			xxxx(scores[i], 80);
@@ -241,6 +242,7 @@ put_scores(monster, other)
 		}
 		ne++;
 		if ((!score_only) && (found_player == -1)) {
+		#ifdef OPT_SINGLE_SLOT
 			if (!name_cmp(scores[i]+15, login_name)) {
 				x = 5;
 				while (scores[i][x] == ' ') {
@@ -253,6 +255,7 @@ put_scores(monster, other)
 					found_player = i;
 				}
 			}
+		#endif
 		}
 	}
 	if (found_player != -1) {
