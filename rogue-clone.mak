@@ -14,8 +14,6 @@ flag@debug: -g, -Og
 flag@release: -Os
 flnk@release: -s
 
-win32/out@debug: rogue-cloned.exe
-
 win32/link: pdcurses_wincon
 linux/link: ncurses, tinfo
 
