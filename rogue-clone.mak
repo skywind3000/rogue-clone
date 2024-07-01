@@ -1,7 +1,11 @@
 mode: exe
-win32/out: rogue-clone.exe
-linux/out: rogue-clone
 int: objs/$(target)-$(profile)
+
+win32/out: rogue-clone.exe
+win32/out@debug: rogue-cloned.exe
+linux/out: rogue-clone
+linux/out: rogue-cloned
+
 flag: -fno-strict-aliasing
 win32/define: PDC_WIDE=1, PDC_FORCE_UTF8=1
 win32/flag: -static
