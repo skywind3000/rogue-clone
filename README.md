@@ -10,16 +10,23 @@ This fork starts from the source code of this Rogue implementation with several 
 
 ## Changes
 
+- Fixed an issue where the old version could produce a corrupted save file, potentially causing the program to crash during the loading process.
 - Added support for Windows.
-- Fixed an issue with save file corruption that could lead to crashes when loading a corrupted save file.
 - Removed inode-ID and timestamp verification for save files, allowing some flexibility with backup and restore operations.
 - Introduced a new wizard mode; press "CTRL+W" and enter "VAX" to enable it.
 - Added a new wizard command "CTRL+G" to restore stamina and HP (requires wizard mode).
 - One user can now have multiple entries on the ranking list.
 
+## Must know
+
+- Find the stairs to descend to the next level, locate the Amulet of Yendor, and bring it back safely.
+- Use `?` command to view the list of available commands.
+- When there is no way to go, use `s` command to search for nearby hidden passages. There are many secret doors and paths to discover.
+
 ## How to play?
 
-Read "[A guide to the dungeons of doom](doc/a-guide-to-the-dungeons-of-doom)".
+- English: "[A guide to the dungeons of doom](doc/a-guide-to-the-dungeons-of-doom)".
+- Chinese: 《[中文手册](doc/RogueChinese.md)》
 
 ## Build
 
