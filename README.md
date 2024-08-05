@@ -10,12 +10,12 @@ This fork starts from the source code of this Rogue implementation with several 
 
 ## Changes
 
-- Fixed an issue where the old version could produce a corrupted save file, potentially causing the program to crash during the loading process.
+- Refactor save/load routines to prevent memory corruption.
 - Added support for Windows.
 - Removed inode-ID and timestamp verification for save files, allowing some flexibility with backup and restore operations.
-- Introduced a new wizard mode; press "CTRL+W" and enter "VAX" to enable it.
-- Added a new wizard command "CTRL+G" to restore stamina and HP (requires wizard mode).
-- One user can now have multiple entries on the ranking list.
+- New wizard type which can be enabled by CTRL+w then input "VAX".
+- New wizard command: CTRL+G to restore HP and stamina.
+- Score file now stores all runs for all users, instead of just the top run for every user.
 - New `-u` argument can check the save file and decide open a new game or load the previous save file if exists.
 
 ## Must know
