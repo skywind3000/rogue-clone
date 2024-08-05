@@ -4,7 +4,7 @@ A fork of rogue-clone from Debian's [bsdgames-nonfree](https://packages.debian.o
 
 ![](doc/rogue.png)
 
-Most Linux distributions, such as Debian and Ubuntu, come with a text-based adventure game called "Rogue", which is an open-source reimplementation of the original Rogue game.
+Most Linux distributions, such as Debian and Ubuntu, come with a text-based dungeon crawling game called "Rogue", which is an open-source reimplementation of the original Rogue game.
 
 This fork starts from the source code of this Rogue implementation with several improvements.
 
