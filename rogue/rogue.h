@@ -441,7 +441,7 @@ struct rogue_time {
 	short second;	/* 0 - 59 */
 };
 
-#if HAVE_PDCURSES
+#if HAVE_PDCURSES && (!defined(PDC_INC_OLD))
 #include <pdcurses/curses.h>
 #else
 #include <curses.h>
@@ -453,7 +453,10 @@ struct rogue_time {
 #include <stdio.h>
 #include <string.h>
 #include <sys/types.h>
+
+#if !defined(_WIN32)
 #include <unistd.h>
+#endif
 
 object	*alloc_object(void);
 object	*check_duplicate(object *, object *);
