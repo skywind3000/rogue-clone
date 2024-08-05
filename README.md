@@ -42,3 +42,14 @@ requirements:
 
 build:
 
+```batch
+mkdir build
+cmake -B build .
+cmake --build build
+```
+
+## Credit
+
+- [bsdgames-nonfree](https://packages.debian.org/bookworm/bsdgames-nonfree)
+
+
