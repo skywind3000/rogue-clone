@@ -16,6 +16,7 @@ This fork starts from the source code of this Rogue implementation with several 
 - Introduced a new wizard mode; press "CTRL+W" and enter "VAX" to enable it.
 - Added a new wizard command "CTRL+G" to restore stamina and HP (requires wizard mode).
 - One user can now have multiple entries on the ranking list.
+- New `-u` argument can check the save file and decide open a new game or load the previous save file if exists.
 
 ## Must know
 
