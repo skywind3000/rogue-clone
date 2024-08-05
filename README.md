@@ -29,6 +29,10 @@ This fork starts from the source code of this Rogue implementation with several 
 - English: "[A guide to the dungeons of doom](doc/a-guide-to-the-dungeons-of-doom)".
 - Chinese: 《[中文手册](doc/RogueChinese.md)》
 
+## Download
+
+For prebuild binaries, check the [release page](releases).
+
 ## Build
 
 requirements:
