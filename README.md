@@ -22,7 +22,7 @@ This fork starts from the source code of this Rogue implementation with several 
 
 - Find the stairs and go down to the next level, locate the Amulet of Yendor, and bring it back safely.
 - Use `?` command to view the list of available commands.
-- When there is no way to go, use `s` command to search for nearby hidden passages. There are many secret doors and paths to discover.
+- When there is no way to go, **use `s` command to search for nearby hidden passages**. There are many secret doors and paths to discover.
 
 ## How to play?
 
