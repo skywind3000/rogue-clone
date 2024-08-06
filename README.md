@@ -2,7 +2,7 @@
 
 A fork of rogue-clone from Debian's [bsdgames-nonfree](https://packages.debian.org/bookworm/bsdgames-nonfree) package with bug fixes and enhancements. 
 
-![](doc/rogue.png)
+![](doc/game.png)
 
 Most Linux distributions, such as Debian and Ubuntu, come with a text-based dungeon crawling game called "Rogue", which is an open-source reimplementation of the original Rogue game.
 
