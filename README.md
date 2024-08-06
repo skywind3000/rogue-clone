@@ -31,7 +31,7 @@ This fork starts from the source code of this Rogue implementation with several 
 
 ## Download
 
-For prebuild binaries, check the [release page](releases).
+For prebuild binaries, check the [release page](https://github.com/skywind3000/rogue-clone/releases).
 
 ## Build
 
