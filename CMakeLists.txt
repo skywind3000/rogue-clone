@@ -45,9 +45,8 @@ elseif (WIN32)
 		winmm
 		)
 else()
-	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -static")
-	set(CMAKE_CPP_FLAGS "${CMAKE_C_FLAGS} -Wall -static")
-	set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static")
+	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall")
+	set(CMAKE_CPP_FLAGS "${CMAKE_C_FLAGS} -Wall")
 	target_link_libraries(rogue-clone
 		ncurses
 		tinfo
